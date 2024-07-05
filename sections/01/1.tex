@@ -1,1 +1,11 @@
-Hola
+\begin{exercise}[1.1]
+  Sea $(a,b) \coloneqq \{\{a\}, \{a,b\}\}$, entonces verifica que $(a,b) = (c,d) \iff a=c \land b=d$.
+\end{exercise}
+\begin{proof}
+  La vuelta es trivial por las propiedades de la igualdad. De este modo, basta con probar la ida.
+
+  Para ello, consideremos que $(a,b) = (c,d)$, entonces, procedamos por casos. En primer lugar, supongamos que $a = b$, entonces $(a,b) = \{\{a\}\}$, sin embargo, esto implica que $\{c\} = \{a\}$ y por ende $a = c$ y de igual forma $d \in \{c,d\} 
+  = \{a\}$, por ende $a = b = c = d$.
+
+  Ahora, supongamos que $a \neq b$. Entonces, notemos que $\{a,b\} \neq \{c\}$ ya que en caso contrario $a = c = b$, lo que contradice la hipótesis, de este modo tendríamos que $\{a\} = \{c\}$ y $\{a,b\} = \{c,d\}$. La primera igualdad nos dice que $a = c$, mientras que la segunda igualdad, dado que $b \neq c$, nos dice que $b = d$.
+\end{proof}

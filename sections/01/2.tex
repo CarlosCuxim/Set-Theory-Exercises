@@ -1,0 +1,10 @@
+\begin{exercise}[1.2]
+  No existe conjunto $X$ tal que $P(X) \subseteq X$.  
+\end{exercise}
+\begin{proof}
+  Sea $X$ un conjunto cualquiera, usando el axioma esquema de separación, consideremos el siguiente subconjunto de $X$
+  \[
+    S = \{ u \in X : u \notin u \}.
+  \]
+  Ahora, si $S \in X$ entonces tendríamos que $S \in S$ o $S \notin S$. Sin embargo, si $S \in S$, entonces por construcción, tendríamos que $S \notin S$ y de forma análoga, si $S \notin S$, entonces eso implicaría que $S \in S$, en ambos casos tenemos una contradicción. De este modo $S \notin X$ y por ende $P(X) \nsubseteq X$.
+\end{proof}
