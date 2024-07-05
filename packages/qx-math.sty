@@ -1,0 +1,117 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{packages/qx-math}
+
+
+
+% ==============================================================================
+% ---------------------- PAQUETE CREADO POR CARLOS CUXIM -----------------------
+%
+% Este paquete contiene algunos macros matemáticos útiles. Como comandos para
+% los conjuntos de números, parte real e imaginaria, intercambio de los simbolos
+% de épsilon, entorno para matrices más complejas y abreviaciones de algunos 
+% comandos.
+%
+% ==============================================================================
+
+
+
+% PAQUETES REQUERIDOS ----------------------------------------------------------
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{mathtools}
+
+
+
+% OPERADORES -------------------------------------------------------------------
+
+\DeclareMathOperator{\varRe}{Re}
+\DeclareMathOperator{\varIm}{Im}
+
+% Función para crear operadores cuyo nombre es el mismo que el del comando
+\def\qx@makeoperators#1{%
+  \@for\@Li:=#1\do{%
+    \ifcsname\@Li\endcsname
+      \PackageError{qx-math}{Comando existente}{El comando \expandafter\string\csname\@Li\endcsname\space ya existe, por favor definirlo manualmente}%
+    \else
+      \expandafter\protected@edef\csname\@Li\endcsname{\operatorname{\@Li}}%
+    \fi
+  }}
+
+\qx@makeoperators{mcm,mcd}
+
+
+
+% OPERADORES BINARIOS ----------------------------------------------------------
+
+% Producto interno
+\newcommand*{\bcdot}{\boldsymbol\cdot}
+
+
+
+% SIMBOLOS DE CONJUNTOS --------------------------------------------------------
+
+% Función que crea un conjunto de comandos de una letra. Tiene 3 elementos de
+% entrada, primero el comando el cual se aplicará a las letras, luego un prefijo
+% para los comandos y finalmente el conjunto de letras al que se aplicará en
+% formato de una lista separada por comas. Dará un error si el comando ya está
+% definido
+\def\qx@makelettercs#1#2#3{%
+  \@for\@Li:=#3\do{%
+    \ifcsname#2\@Li\endcsname%
+      \PackageError{qx-math}{Comando existente}{El comando \expandafter\string\csname#2\@Li\endcsname\space ya existe, por favor definirlo manualmente}%
+    \else%
+      \expandafter\protected@edef\csname#2\@Li\endcsname{#1\@Li}%
+    \fi%
+  }%
+}
+
+% Letras dobles
+\qx@makelettercs{\mathbb}{}{N,Z,Q,R,C}
+
+
+% FRACCIONES -------------------------------------------------------------------
+
+\newcommand{\legen}[2]{\genfrac{(}{)}{}{}{#1}{#2}}
+
+
+
+% ENTORNOS MATEMÁTICAS ---------------------------------------------------------
+
+% Entorno para matrices más complejas
+\newenvironment{spmatrix}[1]{\left(\begin{array}{@{}#1@{}}}{\end{array}\right)}
+\newenvironment{sbmatrix}[1]{\left[\begin{array}{@{}#1@{}}}{\end{array}\right]}
+
+
+
+% GESTION DE ECUACIONES --------------------------------------------------------
+
+% Agrega la numeración aunque el entorno no lo incluya
+\newcommand*{\tagthis}{\refstepcounter{equation}\tag{\theequation}}
+
+% Conectores de ecuaciones "y" y "o"
+\newcommand*{\Eqand}{\qquad\text{y}\qquad}
+\newcommand*{\eqand}{\quad\text{y}\quad}
+\newcommand*{\Eqor}{\qquad\text{o}\qquad}
+\newcommand*{\eqor}{\quad\text{o}\quad}
+
+
+
+% INTERCAMBIO DE COMANDOS ------------------------------------------------------
+
+% Comando para intercambiar el valor de dos comandos
+\def\qx@SwapCommands#1#2{\let\qxAux=#1\let#1=#2\let#2=\qxAux}
+
+\qx@SwapCommands\epsilon\varepsilon
+\qx@SwapCommands\Re\varRe
+\qx@SwapCommands\Im\varIm
+
+
+
+% FUNCIONES AUXILIARES ---------------------------------------------------------
+
+\newcommand*{\ds}{\displaystyle}
+\newcommand*{\bec}{\mathbf}
+
+
+
+\endinput

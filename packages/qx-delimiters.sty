@@ -1,0 +1,49 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{packages/qx-delimiters}
+
+
+
+% ==============================================================================
+% ---------------------- PAQUETE CREADO POR CARLOS CUXIM -----------------------
+%
+% Este paquete contiene todos los macros pertinentes al área de paréntesis
+% que normalmente suelo usar en mis documentos.
+%
+% ==============================================================================
+
+
+
+% FUNCIONES DELIMITADORAS CON ESPACIADO CORRECTO -------------------------------
+\newcommand*{\openleft}{\mathopen{}\mathclose\bgroup\left}
+\newcommand*{\closeright}{\aftergroup\egroup\right}
+\newcommand{\relmiddle}[1]{\mathrel{}\middle#1\mathrel{}}
+
+%  FUNCIONES DELIMITADORES -----------------------------------------------------
+
+% Parentesis, corchetes y llaves con espacio corregido
+\newcommand*{\paren}[1]{\openleft(#1\closeright)}
+\newcommand*{\corch}[1]{\openleft[#1\closeright]}
+\newcommand*{\set}[1]{\openleft\{#1\closeright\}}
+
+% Valor absoluto
+\newcommand*{\abs}[1]{\mathopen|#1\mathclose|}
+\newcommand*{\Abs}[1]{\openleft|#1\closeright|}
+
+% Norma
+\newcommand*{\norm}[1]{\mathopen\|#1\mathclose\|}
+\newcommand*{\Norm}[1]{\openleft\|#1\closeright\|}
+
+% Comillas angulares
+\newcommand*{\inner}[1]{\langle#1\rangle}
+\newcommand*{\Inner}[1]{\openleft\langle#1\closeright\rangle}
+
+% Funciones piso y techo
+\newcommand*{\floor}[1]{\lfloor#1\rfloor}
+\newcommand*{\Floor}[1]{\openleft\lfloor#1\closeright\rfloor}
+
+\newcommand*{\ceil}[1]{\lceil#1\rceil}
+\newcommand*{\Ceil}[1]{\openleft\lceil#1\closeright\rceil}
+
+
+
+\endinput

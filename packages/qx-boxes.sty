@@ -1,0 +1,162 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{packages/qx-boxes}
+
+
+
+% ==============================================================================
+% ---------------------- PAQUETE CREADO POR CARLOS CUXIM -----------------------
+%
+% Este paquete contiene los macros relacionados con las cajas de ejercicios.
+% Contiene las definiciones de los entornos {exercises}, {exercises*}, {lema} y
+% {definition}.
+%
+% ==============================================================================
+
+
+
+% PAQUETES REQUERIDOS ----------------------------------------------------------
+
+\RequirePackage{amsmath}
+\RequirePackage{amsthm}
+
+
+\RequirePackage{tcolorbox}
+  \tcbuselibrary{breakable}
+  \tcbuselibrary{skins}
+
+\RequirePackage{enumitem}
+
+
+
+% COLORES ----------------------------------------------------------------------
+
+% Colores de las cajas
+\colorlet{qx-box-frame}{blue!50!black}
+\colorlet{qx-box-back}{blue!5}
+
+
+
+% CAJAS {exercise} Y {exercise*} -----------------------------------------------
+
+% Contador
+\newcounter{qxExercise}
+
+% Titulo
+\newcommand*{\qxExerciseTitle}{Ejercicio}
+\newcommand*{\SetExerciseTitle}[1]{\renewcommand*{\qxExerciseTitle}{#1}}
+
+% Definición de la caja
+\newtcolorbox{exercise}[1][\refstepcounter{qxExercise}\theqxExercise]{
+  title       = {\qxExerciseTitle\ifx\empty#1\empty.\else\space#1.\fi},
+  colframe    = qx-box-frame,
+  colback     = qx-box-back,
+  fonttitle   = \bfseries,
+  parbox      = false,
+  before skip = \bigskipamount,
+  after skip  = \bigskipamount,
+  breakable
+}
+
+% Caja auxiliar ejercicios
+\newtcolorbox{exercise*}[1][]{
+  title = {#1},
+  colframe    = qx-box-frame,
+  colback     = qx-box-back,
+  fonttitle   = \bfseries,
+  parbox      = false,
+  before skip = \bigskipamount,
+  after skip  = \bigskipamount,
+  breakable
+}
+
+% Lista de ejercicios
+\newenvironment{exerciseList}
+  {\begin{enumerate}[series=exList]}
+  {\end{enumerate}}
+
+% Caja de subejercio. Continua la numeración de {exerciseList}
+\newenvironment{subExercise}
+  {\begin{exercise*}\begin{enumerate}[resume=exList]}
+  {\end{enumerate}\end{exercise*}}
+
+
+
+% CAJAS {definition} Y {definition*} -------------------------------------------
+
+% Contador
+\newcounter{qxDefinition}
+
+% Definición de la caja
+\newtcolorbox{definition}[1][\relax]{
+  title       = {\refstepcounter{qxDefinition}Definición \theqxDefinition\ifx#1\relax.\else\space{\normalfont(#1)}.\fi},
+  coltitle    = black,
+  fonttitle   = \bfseries,
+  colback     = white,
+  colframe    = qx-box-frame,
+  parbox      = false,
+  parbox      = false,
+  top         = 1.5mm+\tcboxedtitleheight/4,
+  before skip = \bigskipamount,
+  after skip  = \bigskipamount,
+  sharp corners,
+  breakable,
+  enhanced,
+  attach boxed title to top left = {yshift = -\tcboxedtitleheight/2, xshift = 4mm-0.5mm},
+  boxed title style = {
+                          colback=white,
+                          left=0.5mm,right=0.5mm,
+                          boxsep=1mm,
+                          frame empty
+                        }
+}
+
+% Definición de la caja sin numeración
+\newtcolorbox{definition*}[1][\relax]{
+  title       = {Definición\ifx#1\relax.\else\space{\normalfont(#1)}.\fi},
+  coltitle    = black,
+  fonttitle   = \bfseries,
+  colback     = white,
+  colframe    = qx-box-frame,
+  parbox      = false,
+  parbox      = false,
+  top         = 1.5mm+\tcboxedtitleheight/4,
+  before skip = \bigskipamount,
+  after skip  = \bigskipamount,
+  sharp corners,
+  breakable,
+  enhanced,
+  attach boxed title to top left = {yshift = -\tcboxedtitleheight/2, xshift = 4mm-0.5mm},
+  boxed title style = {
+                          colback=white,
+                          left=0.5mm,right=0.5mm,
+                          boxsep=1mm,
+                          frame empty
+                        }
+}
+
+
+
+% ENTORNOS {lema} Y {lema*} ----------------------------------------------------
+
+\newtheorem{lemma}[qxDefinition]{Lema}
+\newtheorem*{lemma*}{Lema}
+
+\newtheorem{theorem}[qxDefinition]{Teorema}
+\newtheorem*{theorem*}{Teorema}
+
+\newtheorem{proposition}[qxDefinition]{Proposición}
+\newtheorem*{proposition*}{Proposición}
+
+\newtheorem{corollary}[qxDefinition]{Corolario}
+\newtheorem*{corollary*}{Corolario}
+
+
+% ENTORNO {answer} -------------------------------------------------------------
+
+\newenvironment{answer}[1][Solución]
+  {\begin{proof}[#1]\let\qed\relax}
+  {\end{proof}}
+
+
+
+\endinput
