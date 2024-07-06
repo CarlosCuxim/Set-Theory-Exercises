@@ -1,0 +1,8 @@
+\begin{exercise}[1.5]
+  Si $X$ es inductivo, entonces el conjunto $\{x \in X : x \ \text{es transitivo y} \ x \notin x\}$ es inductivo. Por lo tanto $n \notin n$ y $n \neq n+1$ para cada $n \in \N$.
+\end{exercise}
+\begin{proof}
+  Sea $S = \{x \in X : x \ \text{es transitivo y} \ x \notin x\}$, por lo mostrado en el ejercicio anterior, tenemos que $\emptyset \in X$ y además es inductivo, además, por construcción tenemos que $\emptyset \notin \emptyset$, de este modo $\emptyset \in S$. De igual manera, tenemos que si $x \in S$, entonces $x \cup \{x\} \in X$ y dado que $x$ es transitivo, entonces $x \cup \{x\}$ es transitivo, así basta con probar que $x \cup \{x\} \notin x \cup \{x\}$. Ahora, si $x \cup \{x\} \in x$, dado que $x$ es transitivo, entonces esto implica que $x \cup \{x\} \subseteq x$ lo que implica que $x \in x$, lo que es una contradicción, mientras que si $x \cup \{x\} \in \{x\}$, entonces esto implica que $x \cup \{x\} = x$, lo que nuevamente implica que $x \in x$. De este modo, tenemos que $x \cup \{x\} \notin x$ y $x \cup \{x\} \notin \{x\}$ y por ende $x \cup \{x\} \notin x \cup \{x\}$. De este modo $x \cup \{x\} \in S$ y por ende $S$ es inductivo.
+
+  De esta forma, análogamente a ejercicios anteriores, tenemos que $S = \{x \in \N : x \ \text{es transitivo y} \ x \notin x\}$ es inductivo y por minimalidad tenemos que $\N = S$. De este modo, para todo $n \in \N$ tenemos que $n \notin n$ y de igual manera, tenemos que $n \neq n+1$, ya que en caso contrario tendríamos que $n = n \cup \{n\}$, lo que implicaría que $n \in n$.
+\end{proof}

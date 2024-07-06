@@ -1,0 +1,12 @@
+\begin{exercise}[1.4]
+  Si $X$ es inductivo, entonces el conjunto $\{ x \in X: x \ \text{es transitivo}\}$ es inductivo. Por lo tanto todo $n \in \N$ es transitivo.
+\end{exercise}
+\begin{proof}
+  Sea $S = \{ x \in X: x \ \text{es transitivo}\}$, dado que $X$ es inductivo, entonces tenemos que $\emptyset \in X$, de este modo basta con probar que $\emptyset$ es transitivo. Ahora, recordemos que la definición de que un conjunto $A$ es inductivo es si $\forall x (x \in A \to x \subseteq A)$, de este modo, tomando $A = \emptyset$ entonces tenemos que 
+  \[
+    \forall x (x \in \emptyset \lthen x \subseteq \emptyset) \iff \forall x (\lfalse \lthen x \subseteq \emptyset) \iff \ltrue,
+  \]
+  donde $\top$ denota el símbolo para una tautología y $\bot$ el símbolo para una contradicción. De este modo, tenemos que $\emptyset$ es transitivo y por ende $\emptyset \in S$. Ahora, sea $x \in S \subseteq X$, entonces, por hipótesis, es claro que $x \cup \{x\} \in X$, de este modo basta con probar que $x \cup \{x\}$ es transitivo. Sea $u \in x \cup \{x\}$, si $u \in x$, dado que $x$ es transitivo, entonces tenemos que $u \subseteq x \subseteq x \cup \{x\}$, mientras que si $u \in \{x\}$, entonces tenemos que $u = x$ y por ende $u \subseteq x \cup \{x\}$, lo que finalmente muestra la transitividad y por ende $x \cup \{x\} \in S$. Así tenemos que $S$ es inductivo.
+
+  Ahora, análogamente al ejercicio anterior, tenemos que $S = \{ x \in \N: x \ \text{es transitivo}\}$ es inductivo, sin embargo, como $\N$ es el conjunto inductivo más pequeño, entonces tenemos que $\N = S$, lo que muestra que para todo $n \in \N$ se cumple que $n$ es transitivo.
+\end{proof}

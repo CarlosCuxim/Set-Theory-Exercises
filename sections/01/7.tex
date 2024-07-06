@@ -1,0 +1,8 @@
+\begin{exercise}[1.7]
+  Todo conjunto $X \subseteq \N$ no vacío tiene un elemento $\in$-minimal.
+\end{exercise}
+\begin{proof}
+  Análogamente a lo realizado en ejercicios anteriores, por la minimalidad de $\N$, tenemos que $\N = \{x \in \N : x$ es transitivo y todo $z \subseteq x$ no vacío tiene un elemento $\in$-minimal$\}$.
+
+  Ahora, sea $X \subseteq \N$ no vacío, entonces tenemos que existe $n \in X$, así, consideremos $z = (n+1) \cap X \subseteq n+1$, notemos que es no vacío ya que $n \in z$, de este modo, por lo mostrado al inicio, tenemos que existe $t \in z$ tal que es $\in$-minimal, así, mostremos que la $\in$-minimalidad también se aplica para $X$. Así, sea $s \in X$, si $s \in n+1$, entonces por construcción, tenemos que $s \notin t$, mientras que si $s \notin n+1$, dado que $t \in n+1$, entonces por la transitividad de $n+1$, tenemos que $t \subseteq n+1$, de este modo $s \notin t$ ya que en caso contrario, tendríamos que $s \notin n+1$. De esta forma, tenemos que $t$ es $\in$-minimal en $X$.
+\end{proof}

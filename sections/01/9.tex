@@ -1,0 +1,6 @@
+\begin{exercise}[1.9 (Inducción)]
+  Sea $A$ un conjunto de $\N$ tal que $0 \in A$ y si $n \in A$ entonces $n+1 \in A$. Entonces $A = \N$.
+\end{exercise}
+\begin{proof}
+  Supongamos que $A \neq \N$, entonces sea $X = \N - A$, entonces tenemos que $X$ es un subconjunto de $\N$ no vacío, por ende existe $t \in X$ tal que es $\in$-minimal. Ahora, por el ejercicio anterior, tenemos que $t = n+1$, para algún $n \in \N$, dado que $n < t$ entonces esto quiere decir que $n \notin X$, por ende $n \in A$. Sin embargo, por hipótesis tenemos que $t = n+1 \in A$, lo que contradice que $t \in X$. De este modo tenemos que $X = \emptyset$ y por ende $A = \N$.
+\end{proof}

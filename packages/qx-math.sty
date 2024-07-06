@@ -22,7 +22,7 @@
 
 
 
-% OPERADORES -------------------------------------------------------------------
+% OPERADORES TEXTO -------------------------------------------------------------
 
 \DeclareMathOperator{\varRe}{Re}
 \DeclareMathOperator{\varIm}{Im}
@@ -39,6 +39,14 @@
 
 \qx@makeoperators{mcm,mcd}
 
+% OPERADORES UNARIOS ----------------------------------------------------------
+
+% Cuantificadores lógicos
+\let\oldforall=\forall
+\renewcommand*{\forall}[1]{\mathop{\oldforall#1}}
+
+\let\oldexists=\exists
+\renewcommand*{\exists}[1]{\mathop{\oldexists#1}}
 
 
 % OPERADORES BINARIOS ----------------------------------------------------------
@@ -111,7 +119,9 @@
 
 \newcommand*{\ds}{\displaystyle}
 \newcommand*{\bec}{\mathbf}
-
-
+\newcommand*{\ltrue}{\top}
+\newcommand*{\lfalse}{\bot}
+\newcommand*{\lthen}{\rightarrow}
+\newcommand*{\liff}{\leftrightarrow}
 
 \endinput
