@@ -1,3 +1,13 @@
 \begin{exercise}[1.14]
   El axioma de separación se sigue del esquema de reemplazo.
 \end{exercise}
+\begin{proof}
+  Sea $\varphi(x,p)$ una formula lógica, consideremos la clase $F$ dada por $F = \{ (x,x) : \varphi(x,p) \}$. Es inmediato que es un funcional ya que si $(x,y), (x,z) \in F$, entonces esto quiere decir que $y = x= z$.
+
+  De esta forma, sean $X$ y $p$ un conjuntos, por el esquema de reemplazo, tenemos que $Y = F(X)$ es un conjunto. Ahora, sea $y \in Y$, por definición, tenemos que existe $x \in X$ tal que $ y = F(x) = x$, sin embargo, como $y \in \dom(F) = \{x : \varphi(x,p)\}$, esto quiere decir que $y \in \{x \in X : \varphi(x,p)\}$ y por ende
+  \[
+    Y \subseteq \{x \in X : \varphi(x,p)\}.
+  \]
+
+  Análogamente, sea $y \in \{x \in X : \varphi(x,p)\}$, entonces tenemos que $y \in X \cap \dom(F)$ lo que implica que $y = F(y) \in Y$. De este modo, tenemos que $Y = \{x \in X : \varphi(x,p)\}$, lo que muestra el axioma de separación.
+\end{proof}

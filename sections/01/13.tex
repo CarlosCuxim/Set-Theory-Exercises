@@ -1,3 +1,17 @@
 \begin{exercise}[1.13]
   Cada conjunto infinito es T-infinito.
 \end{exercise}
+\begin{proof}
+  Probemos que todo $n \in \N$ tiene $n$ elementos, si $n \neq 0$ entonces se satisface inmediatamente mediante la función identidad $\Id_n \colon n \to n$ dada por $\Id_n(k) = k$. Ahora, en el caso $n = 0 = \emptyset$ se satisface ya que $\emptyset \subseteq 0 \times \emptyset$ y cumple que 
+  \[
+    \forall x \forall y \forall z \bigl( (x,y) \in \emptyset \land (x,z) \in \emptyset \lthen y = z \bigr) 
+    \iff
+    \forall x \forall y \forall z (\lfalse  \lthen y = z )
+    \iff \ltrue.
+  \]
+  De este modo $\emptyset$ es una función $ 0 \to \emptyset$, además, por un razonamiento análogo, tenemos que es biyectiva.
+
+  Ahora, probemos la contrarrecíproca. Sea $S$ un conjunto T-finito, en este caso consideremos el conjunto $X = \{x \in P(S) : x \ \text{es finito}\}$, notemos que $X$ es no vacío ya que $\emptyset \in X$. De esta forma, por hipótesis, tenemos que existe $u \in X$ tal que es $\subseteq$-maximal, si $u = S$ entonces tenemos que $S$ es finito, por lo que basta considerar el caso cuando $u \neq S$.
+
+  Dado que $u$ es finito, entonces tenemos que existe $n \in \N$ y una función $f\colon u \to n$ biyectiva. Ahora, como $u \neq S$, entonces tenemos que existe $s \in S$ tal que $s \notin u$, de esta forma consideremos la función $f'\colon u \cup \{s\} \to n+1$ dado por $f' = f \cup (s, n)$. Por construcción, tenemos que $f'$ es biyectiva, de esta forma $u \cup \{s\} \in X$, sin embargo, esto contradice la $\subseteq$-maximalidad de $u$, de esta forma, este caso no es posible, lo que muestra que $S$ es finito.
+\end{proof}

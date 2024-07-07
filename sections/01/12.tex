@@ -1,3 +1,14 @@
 \begin{exercise}[1.12]
   Cada conjunto finito es T-finito.
 \end{exercise}
+\begin{proof}
+  En primer lugar, notemos que si $f \colon X \to Y$ es una función biyectiva, entonces podemos construir una función $F \colon P(X) \to P(Y)$ biyectiva si consideramos $F(A) = f(A)$. Para ver que es sobre, basta ver que si $B \subseteq Y$ entonces
+  \[
+    F\bigl(f^{-1}(B)\bigr) = \bigl\{ f^{-1}\bigl(f(b)\bigr) : b \in B \bigr\} = B,
+  \]
+  donde $f^{-1}\colon Y \to X$ es la función inversa de $f$, mientras que la inyectividad se da ya que si $F(A) = F(B)$ eso quiere decir que para cada $f(a) \in f(A)$ existe $b \in f(B)$ tal que $f(a) = f(b)$ y por ende $a = b$ lo que muestra que $A = B$. Más aun, la función $F$ preserva la inclusión, es decir $A \subseteq B$ si y solo si $F(A) \subseteq F(B)$.
+
+  Con esto probemos la proposición. En primer lugar, sea $X$ un conjunto finito, esto quiere decir que existe un $n \in \N$ y función $f \colon n \to X$ biyectiva y por ende podemos construir una función $F \colon P(n) \to P(X)$ biyectiva que preserva la inclusión.
+
+  De esta forma, sea $S \subseteq P(X)$ un conjunto no vacío, por lo mostrado anteriormente, tenemos que existe $R \subseteq P(n)$ tal que $F(R) = S$, sin embargo, por el ejercicio anterior, tenemos que $R$ contiene un elemento $u$ que es $\subseteq$-maximal, mostremos que $F(u)$ es $\subseteq$-maximal en $S$. Sea $v \in S$ tal que $F(u) \subseteq v$, dado que $F$ preserva inclusiones, tenemos que $u \subseteq F^{-1}(v) $, sin embargo por la $\subseteq$-maximalidad de $u$, esto implica que $u = F^{-1}(v)$ y por ende $F(u) = v$, lo que finalmente muestra que $F(u)$ es $\subseteq$-maximal en $S$ y por ende $X$ es T-finito.
+\end{proof}

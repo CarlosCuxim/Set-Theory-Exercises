@@ -1,11 +1,32 @@
 \begin{exercise}[1.15]
   En vez de los axiomas de unión, conjunto potencia y reemplazo, considera las siguientes versiones débiles:
-  \begin{enumerate}
+  \begin{enumerate}[label=(\arabic*)]
     \item $\forall X \exists Y (\bigcup X \subseteq Y)$,\qquad i.e., $\forall X \exists Y  \forall x \in X  \forall u \in x  (u \in Y)$.
     
     \item $\forall X  \exists Y  (P(X) \subseteq Y)$,\qquad i.e., $\forall X \exists Y  \forall u  (u \subseteq X \lthen u \in Y)$.
     
     \item Si $F$ es un funcional, entonces $\forall X  \exists Y  (F(X) \subseteq Y)$.
   \end{enumerate}
-  Entonces, los axiomas de unión, conjunto potencia y reemplazo, pueden ser probados con 1, 2 y 3, usando el esquema de separación.
+  Entonces, los axiomas de unión, conjunto potencia y reemplazo, pueden ser probados con (1), (2) y (3), usando el esquema de separación.
 \end{exercise}
+\begin{proof}~
+  \begin{enumerate}
+    \item Sea $Y$ el conjunto dado por el axioma (1), entonces, por el axioma de separación consideremos el siguiente conjunto
+    \[
+        Y' = \{y \in Y : \exists z \in X (y \in z) \}.
+    \]
+    Ahora, si $y \in Y'$ entonces trivialmente existe $z \in X$ tal que $y \in z$. Ahora, si existe $z \in X$ tal que $y \in z$, entonces esto quiere decir que $y \in Y$ y por construcción esto implica que $y \in Y'$. Lo que implica que el axioma de unión se satisface.
+
+    \item Sea $Y$ el conjunto dado por el axioma (2), entonces por el axioma de separación basta considerar el conjunto
+    \[
+      Y' = \{y \in Y : y \subseteq X\}.
+    \]
+    Ahora, si $y \in Y'$ entonces $y \subseteq X$, mientras que si $y \subseteq X$ entonces tenemos que $y \in Y$ y por ende $y \in Y'$. Lo que implica que el axioma del conjunto potencia se satisface.
+
+    \item Sea $Y$ el conjunto dado por el axioma (3), entonces por el axioma de separación basta con considerar el conjunto
+    \[
+      Y' = \bigl\{y \in Y : \exists x \in X \bigl( y = F(x) \bigr) \bigr\}.
+    \]
+    Si $y \in Y'$ entonces trivialmente existe $x \in X$ tal que $y = F(x)$. Ahora, si existe $x \in X$ tal que $y = F(x)$ esto quiere decir que $y \in F(X)$ y por ende $y \in Y$, sin embargo esto implica que $y \in Y'$. Lo que implica que el axioma esquema de reemplazo se satisface.
+  \end{enumerate}
+\end{proof}

@@ -1,7 +1,28 @@
-Un conjunto $X$ \emph{tiene $n$ elementos} (donde $n \in \N$) si existe un mapeo inyectivo de $n$ en $X$. Un conjunto es \emph{finito} si tiene $n$ elementos para algún $n \in \N$ y es \emph{infinito} si no es finito.
+Un conjunto $X$ \emph{tiene $n$ elementos} (donde $n \in \N$) si existe un mapeo inyectivo de $n$ sobre $X$. Un conjunto es \emph{finito} si tiene $n$ elementos para algún $n \in \N$ y es \emph{infinito} si no es finito.
 
 Un conjunto $S$ es \emph{T-finito} si cada $X \subseteq P(S)$ no vacío tiene un elemento $\subseteq$-maximal, i.e., $u \in X$ tal que no existe $v \in X$ con $u \subseteq v$ y $u \neq v$. $S$ es \emph{T-infinito} si no es T-finito.
 
 \begin{exercise}[1.10]
   Cada $n \in \N$ es T-finito.
 \end{exercise}
+\begin{proof}
+  En primer lugar, notemos que si $A \subseteq B$, entonces $P(A)\subseteq P(B)$. De este modo procedamos por inducción sea $A = \{n \in \N : n \ \text{es T-finito}\}$, mostremos que $A = \N$.
+
+  Si $n = 0$, entonces tenemos que $P(0) = \{0\}$, de esta forma $P(0)$ es el único subconjunto no vacío de $P(0)$ y $0$ es un elemento $\subseteq$-maximal, de esta forma $0 \in A$.
+  
+  
+
+  Ahora, supongamos que $n \in A$, sea $X \subseteq P(n+1)$ no vacío, dado que $P(n) \subseteq P(n+1)$, entonces tenemos dos casos, en primer lugar, si $X \subseteq P(n)$ entonces, dado que $n \in A$, tenemos que $X$ tiene un elemento $\in$-minimal.
+  
+  De esta forma consideremos el caso cuando $X \nsubseteq P(n)$. Primero, por el axioma de separación, consideremos la siguiente relación
+  \[
+    F = \{ (u,v) : v = u - \{n\} \}.
+  \]
+  Es un funcional, ya que si $u$, $v$ y $w$ son conjuntos tales que $(u,v), (u,w) \in F$, entonces $v = u - \{n\} = w$. De esta forma, si $Y = X - P(n) = \{u \in X : n \in u\}$, que por hipótesis es no vacío, por el esquema de reemplazo, consideremos el siguiente conjunto 
+  \[
+    X' = F(Y) = \{ u - \{n\} : u \in Y\}.
+  \]
+  Notemos que por construcción $X' \subseteq P(n)$, ya que si $u \in X$, esto quiere decir que $u \subseteq n+1 = n \cup \{n\}$, de esta forma $u - \{n\} \subseteq n$ y es no vacío dado que $Y$ es no vacío. De esta forma, dado que $n \in A$, entonces tenemos que $X'$ tiene un elemento $u'$ que es $\subseteq$-maximal. Por construcción tenemos que $u' = u - \{n\}$ para algún $u \in Y$, de esta forma $u = u' \cup \{n\} \in X$, basta mostrar que $u$ es un elemento $\subseteq$-maximal de $X$.
+
+  Supongamos que $v \in X$ es tal que $u \subseteq v$, entonces, como $n \in u$, esto quiere decir que $v \in Y$, y por ende $F(v) \in X'$, sin embargo, dado que $u' = F(u) \subseteq F(v)$ y por la $\subseteq$-maximalidad de $u'$ en $X'$, esto quiere decir que $u' = F(v) = v - \{n\}$, pero esto implica que $u = u' \cup \{n\} = v$, lo que nos muestra la $\subseteq$-maximalidad de $u$ en $X$. De esta forma $n+1 \in A$ y por inducción tenemos que $A = \N$.
+\end{proof}
